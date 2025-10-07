@@ -1,0 +1,147 @@
+/* style.css - wygląd dla Z11 - procent z liczby
+   Autor: wygenerowane przez ChatGPT
+   Zastosowanie: podłączony w <head> twojego HTML (już masz link rel="stylesheet" href="style.css")
+*/
+
+:root{
+    --bg:#f5f7fb;
+    --card:#ffffff;
+    --accent:#0066cc;
+    --accent-strong:#004a99;
+    --muted:#6b7280;
+    --success:#1f9d6e;
+    --danger:#e14b4b;
+    --glass: rgba(255,255,255,0.6);
+    --radius:12px;
+    --shadow: 0 6px 18px rgba(16,24,40,0.08);
+    --max-width:720px;
+    font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+    margin:0;
+    background: linear-gradient(180deg,var(--bg), #eef3fb 60%);
+    color:#111827;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:40px 20px;
+}
+
+/* Główny kontener (używamy sekcji jako karty) */
+header{
+    text-align:center;
+    margin-bottom:18px;
+}
+
+h1{
+    font-size:1.8rem;
+    margin:0;
+    letter-spacing: -0.5px;
+}
+
+h2{
+    margin:6px 0 0 0;
+    font-size:0.95rem;
+    color:var(--muted);
+    font-weight:500;
+}
+
+section{
+    width:100%;
+    max-width:var(--max-width);
+    background:var(--card);
+    border-radius:var(--radius);
+    padding:22px;
+    box-shadow:var(--shadow);
+}
+
+/* Formularz i pola */
+label{
+    display:block;
+    font-size:0.95rem;
+    margin-top:12px;
+    margin-bottom:6px;
+    color:#111827;
+}
+
+input[type="text"]{
+    width:100%;
+    padding:10px 12px;
+    border:1px solid #e6e9ef;
+    border-radius:10px;
+    font-size:1rem;
+    outline:none;
+    transition:box-shadow .15s ease, border-color .15s ease;
+}
+
+input[type="text"]:focus{
+    border-color:var(--accent);
+    box-shadow:0 4px 12px rgba(0,102,204,0.12);
+}
+
+/* Przycisk */
+button{
+    display:inline-block;
+    margin-top:16px;
+    padding:10px 18px;
+    font-size:1rem;
+    font-weight:600;
+    color:white;
+    background:linear-gradient(180deg,var(--accent),var(--accent-strong));
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    box-shadow:0 8px 20px rgba(0,102,204,0.12);
+    transition:transform .08s ease, box-shadow .12s ease, opacity .12s ease;
+}
+
+button:hover{transform:translateY(-2px)}
+button:active{transform:translateY(0)}
+
+/* Wynik */
+#wynik{
+    margin-top:18px;
+    padding:14px 16px;
+    border-radius:10px;
+    background:linear-gradient(180deg,var(--glass), rgba(255,255,255,0.9));
+    border:1px solid rgba(16,24,40,0.03);
+    font-size:1.05rem;
+    color:#0f172a;
+    min-height:48px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+/* Drobne utrzymanie estetyki dla małych ekranów */
+@media (max-width:520px){
+    body{padding:18px}
+    section{padding:16px}
+    h1{font-size:1.4rem}
+    button{width:100%; padding:12px}
+}
+
+/* Dodatkowe klasy pomocnicze (możesz użyć z JS)
+   .ok - pozytywny wynik
+   .err - błąd/nieprawidłowe dane
+*/
+#wynik.ok{border-left:4px solid var(--success); color:var(--success)}
+#wynik.err{border-left:4px solid var(--danger); color:var(--danger)}
+
+/* Estetyczne focusy dostępności */
+button:focus, input[type="text"]:focus{
+    outline:3px solid rgba(0,102,204,0.12);
+    outline-offset:2px;
+}
+
+/* Mała animacja dla pojawiania się wyniku */
+@keyframes fadeInUp{
+    from{opacity:0; transform:translateY(6px)}
+    to{opacity:1; transform:translateY(0)}
+}
+#wynik{animation:fadeInUp .28s ease}

@@ -1,0 +1,48 @@
+/* Stylowanie całej strony */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #cff04c;
+}
+
+h1 {
+    color: #0061e0;
+    text-align: center;
+}
+
+/* Stylowanie listy */
+ul {
+    list-style-type: none;  /* Usuwamy domyślne punkty */
+    padding-left: 0;  /* Usuwamy domyślny margines */
+}
+
+li {
+    margin: 10px 0;  /* Dajemy odstęp między elementami */
+    font-size: 1.1em;
+}
+
+/* Zmieniamy styl punktów na strzałki */
+ul li:before {
+    content: "►"; /* Symbol trójkąta */
+    color: #7ecb32; /* Kolor trójkąta */
+    font-size: 1.5em; /* Rozmiar trójkąta */
+    margin-right: 10px; /* Odstęp między trójkątem a tekstem */
+}
+
+/* Dodatkowe style nagłówków */
+header {
+    background-color: #003f8f;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+}
+
+header h1 p {
+    margin: 0;
+}
+
+p {
+    color: white;
+}
+

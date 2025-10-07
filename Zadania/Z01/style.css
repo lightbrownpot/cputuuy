@@ -1,0 +1,22 @@
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: #7ecb32;
+    box-sizing: border-box;
+}
+
+header {
+    background-color: #cff04c;
+    color: aquamarine;
+    padding: 10px;
+}
+
+section {
+    background-color: #0061e0;
+    color: gray;
+    padding: 10px;
+}
+
+#wynik {
+    background-color: #ffffff;
+    color: #0061e0;
+}

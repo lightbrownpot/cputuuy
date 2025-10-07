@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Zadanie Z31</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+  <h1>Zadanie Z31</h1>
+  <h2>Autor: Andrii Bondar</h2>
+  <p>Napisz program, który dla współrzędnych wierzchołków trójkąta (x₁, y₁), (x₂, y₂), (x₃, y₃) oblicza jego pole powierzchni.<br>
+    Program powinien sprawdzać, czy podane wartości tworzą prawidłowy trójkąt.</p>
+
+  <p><strong>Wzór matematyczny:</strong><br>
+    P = ½ × |x₁(y₂−y₃) + x₂(y₃−y₁) + x₃(y₁−y₂)|</p>
+
+  <form id="form">
+    <label for="x1">x₁:</label>
+    <input type="number" id="x1" step="any">
+    <label for="y1">y₁:</label>
+    <input type="number" id="y1" step="any">
+
+    <label for="x2">x₂:</label>
+    <input type="number" id="x2" step="any">
+    <label for="y2">y₂:</label>
+    <input type="number" id="y2" step="any">
+
+    <label for="x3">x₃:</label>
+    <input type="number" id="x3" step="any">
+    <label for="y3">y₃:</label>
+    <input type="number" id="y3" step="any">
+
+    <button id="oblicz">Oblicz pole</button>
+
+    <section id="wynik" aria-live="polite"></section>
+  </form>
+</div>
+
+<script src="main.js"></script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Zadanie Z - Pole trójkąta ze współrzędnych</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>

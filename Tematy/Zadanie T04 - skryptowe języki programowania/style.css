@@ -1,0 +1,80 @@
+/* Ogólne tło i czcionka */
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #fdfbfb, #ebedee);
+    color: #333;
+    margin: 0;
+    padding: 0;
+    text-align: center; /* wyśrodkowanie treści */
+}
+
+/* Header */
+header {
+    background: linear-gradient(135deg, #ffdd99, #ffb366);
+    color: #4a2c00;
+    text-align: center;
+    padding: 25px;
+    border-radius: 0 0 15px 15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+/* Nagłówki */
+h1, h2, h4 {
+    color: #333366;
+    margin-top: 20px;
+}
+
+/* Akapity i listy */
+p, ul {
+    max-width: 900px;
+    margin: 10px auto;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+/* Tabela z obrazkami */
+table {
+    width: 90%;
+    max-width: 1000px;
+    margin: 30px auto;
+    border-collapse: collapse;
+    background: #ffffffc9;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* Komórki tabeli */
+th, td {
+    border: 1px solid #ccc;
+    padding: 12px;
+    text-align: left;
+    vertical-align: middle;
+}
+
+/* Nagłówek tabeli */
+th {
+    background-color: #ffb366;
+    color: #4a2c00;
+    text-align: center;
+    font-size: 18px;
+}
+
+/* Obrazki w tabeli */
+td img {
+    width: 120px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Efekt hover na wierszach */
+tr:hover {
+    background-color: #fff5e6;
+}

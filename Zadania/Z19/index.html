@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Zadanie Z19</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+  <h1>Zadanie Z19</h1>
+  <h2>Autor: Andrii Bondar</h2>
+  <p>Napisz program, który dla danego <strong>x</strong> będącego liczbą rzeczywistą oblicza wartość wyrażenia:</p>
+  <p class="formula">
+    y = x² / (1 + |x|)²
+  </p>
+
+  <form id="form">
+    <label for="x">Podaj wartość x:</label>
+    <input type="number" id="x" step="any">
+
+    <button id="oblicz">Oblicz</button>
+
+    <section id="wynik" aria-live="polite"></section>
+  </form>
+</div>
+
+<script src="main.js"></script>
+</body>
+</html>
