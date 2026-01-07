@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>T39 - obiekt czolg</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; margin: 20px; }
+        .container { border: 2px solid #333; padding: 20px; max-width: 400px; }
+        .info-box { background-color: #f0f0f0; padding: 10px; margin-bottom: 15px; border-radius: 5px; }
+        .ammo-display { font-size: 1.5em; font-weight: bold; color: #cc0000; }
+        button { padding: 10px 20px; font-size: 1em; cursor: pointer; margin-right: 10px; }
+        #strzelaj-btn { background-color: #d9534f; color: white; border: none; }
+        #zaladuj-btn { background-color: #5cb85c; color: white; border: none; }
+    </style>
+</head>
+<body>
+
+<h1>T39 - obiekt czolg</h1>
+<h2>Autor: Andrii Bondar 4i</h2>
+<div class="container">
+    <h2 id="czolg-nazwa"></h2>
+
+    <div class="info-box">
+        <p>Kolor: <span id="czolg-kolor"></span></p>
+        <p>Amunicja: <span id="czolg-amunicja" class="ammo-display"></span></p>
+    </div>
+
+    <div id="komunikat" style="margin-bottom: 15px; font-style: italic;"></div>
+
+    <button id="strzelaj-btn">💥 STRZELAJ</button>
+    <button id="zaladuj-btn">➕ ZAŁADUJ (+5)</button>
+    <button id="pomaluj-btn">🎨 POMALUJ (Niebieski)</button>
+</div>
+
+<script>
+    class Czolg {
+        constructor(nazwa, kolor, iloscAmunicji = 0) {
+            this.nazwa = nazwa;
+            this.kolor = kolor;
+            this.iloscAmunicji = iloscAmunicji;
+        }
+
+        _aktualizujWidok(komunikat = "") {
+            document.getElementById('czolg-nazwa').textContent = `Czołg: ${this.nazwa}`;
+            document.getElementById('czolg-kolor').textContent = this.kolor;
+            document.getElementById('czolg-amunicja').textContent = this.iloscAmunicji;
+            document.getElementById('komunikat').textContent = komunikat;
+
+            console.log(`[${this.nazwa}] Amunicja: ${this.iloscAmunicji}, Komunikat: ${komunikat}`);
+        }
+
+        info() {
+            this._aktualizujWidok(`Wyświetlono aktualne informacje o czołgu.`);
+        }
+
+        pomaluj(nowyKolor) {
+            const staryKolor = this.kolor;
+            this.kolor = nowyKolor;
+            this._aktualizujWidok(`Pomalowano z ${staryKolor} na ${nowyKolor}.`);
+        }
+
+        zaladuj(iloscPociskow) {
+            if (iloscPociskow > 0) {
+                this.iloscAmunicji += iloscPociskow;
+                this._aktualizujWidok(`Załadowano +${iloscPociskow} pocisków.`);
+            }
+        }
+
+        strzelaj() {
+            if (this.iloscAmunicji > 0) {
+                this.iloscAmunicji -= 1;
+                this._aktualizujWidok(`💥 Ogień! Zostało ${this.iloscAmunicji} pocisków.`);
+            } else {
+                this._aktualizujWidok(`🚫 Brak amunicji! Nie można strzelać.`);
+            }
+        }
+    }
+
+    const mojCzolg = new Czolg("Tygrys II", "kamuflaż", 5);
+
+    mojCzolg.info();
+
+    document.getElementById('strzelaj-btn').addEventListener('click', () => {
+        mojCzolg.strzelaj();
+    });
+
+    document.getElementById('zaladuj-btn').addEventListener('click', () => {
+        mojCzolg.zaladuj(5);
+    });
+
+    document.getElementById('pomaluj-btn').addEventListener('click', () => {
+        mojCzolg.pomaluj("niebieski");
+    });
+
+</script>
+</body>
+</html>

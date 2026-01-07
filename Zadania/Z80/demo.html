@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Z80 - piramida_d</title>
+</head>
+<body>
+<header>
+  <h1>Z80 - piramida_d</h1>
+  <h2>Autor: Andrii Bondar 4i</h2>
+</header>
+<p>Napisz program, który dla podanej liczby całkowitej A wyświetla piramidę znaków | o ilości wierszy równej A (maksymalna wartość A = 50).</p>
+<script>
+  let A = parseInt(prompt("Podaj liczbę A (1–50):"));
+
+  if (isNaN(A) || A < 1 || A > 50) {
+  } else {
+    for (let i = 1; i <= A; i++) {
+      document.write("|".repeat(i) + "<br>");
+    }
+  }
+</script>
+</body>
+</html>

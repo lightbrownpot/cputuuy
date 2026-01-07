@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Z77 - od mniejszej do większej_d</title>
+</head>
+<body>
+<header>
+    <h1>Z77 - od mniejszej do większej_d</h1>
+    <h2>Autor: Andrii Bondar 4i</h2>
+</header>
+<p>Napisz program, który dla podanych liczb całkowitych A i B wyświetla liczby od A do B, gdy A < B, lub od B do A, gdy B < A.</p>
+
+<div id="wynik" style="margin-top: 15px; font-size: 18px;"></div>
+
+<script>
+    let A = parseInt(prompt("Podaj liczbę A:"));
+    let B = parseInt(prompt("Podaj liczbę B:"));
+
+    let wynik = "";
+
+    if (A < B) {
+        for (let i = A; i <= B; i++) {
+            wynik += i + " ";
+        }
+    } else {
+        for (let i = B; i <= A; i++) {
+            wynik += i + " ";
+        }
+    }
+
+    document.getElementById("wynik").innerHTML = "<b>Wynik:</b> " + wynik;
+</script>
+</body>
+</html>

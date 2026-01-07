@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Zadanie 62 - Ocena zachowania</title>
+</head>
+<body>
+<header>
+    <h1>Zadanie 62 - Ocena zachowania</h1>
+    <h2>Autor: Andrii Bondar</h2>
+</header>
+<section>
+<p>Napisz program, który dla podanej wartości wyświetla ocenę wyrażoną słownie według następującego klucza:<br>
+    0 – nieklasyfikowany<br>
+    1,2,3 – poprawny<br>
+    4,5 – dobry<br>
+    6 – wyróżniający.<br>
+    Na pozostałe wartości reaguje wyświetleniem komunikatu: „niewłaściwa liczba”.</p>
+</section>
+<script>
+    let Ocena = parseInt(prompt('Podaj wartość A'));
+
+    if (Ocena == 0) {
+        document.write('Nieklasyfikowany');
+    }
+    else if (Ocena >=1 && Ocena <=3) {
+        document.write('Poprawny');
+    }
+    else if (Ocena == 4 || Ocena == 5) {
+        document.write('Dobry');
+    }
+    else if (Ocena === 6)
+        document.write('Wyróżniający');
+
+</script>
+</body>
+</html>

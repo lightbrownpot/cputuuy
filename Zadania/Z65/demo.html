@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Pierwiastki równania kwadratowego</title>
+</head>
+<body>
+<header>
+  <h1>Zadanie 64</h1>
+  <h2>Autor: Andrii Bondar</h2>
+</header>
+<script>
+  let A = parseFloat(prompt("Podaj A:"));
+  let B = parseFloat(prompt("Podaj B:"));
+  let C = parseFloat(prompt("Podaj C:"));
+
+  if (A == 0) {
+    document.write("To nie jest równanie kwadratowe.");
+  } else {
+    let delta = B*B - 4*A*C;
+
+    if (delta < 0) {
+      document.write("Brak pierwiastków rzeczywistych.");
+    } else if (delta == 0) {
+      let x = -B / (2*A);
+      document.write("Jeden pierwiastek: x = " + x);
+    } else {
+      let x1 = (-B - Math.sqrt(delta)) / (2*A);
+      let x2 = (-B + Math.sqrt(delta)) / (2*A);
+      document.write("Dwa pierwiastki: x₁ = " + x1 + ", x₂ = " + x2);
+    }
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Z83 - przekątna 1_d</title>
+</head>
+<body>
+<header>
+    <h1>Z83 - przekątna 1_d</h1>
+    <h2>Autor: Andrii Bondar 4i</h2>
+</header>
+<p>Napisz program, który dla podanej liczby całkowitej A oznaczającej ilość znaków w wierszu wyświetla następujący blok
+    znaków.</p>
+<script>
+    // Pytanie o liczbę A
+    let A = parseInt(prompt("Podaj liczbę całkowitą A:"));
+
+    if (isNaN(A) || A < 1) {
+        document.write("Wprowadzona wartość jest niepoprawna lub zbyt mała.");
+    } else {
+        document.write("<h2>Wynik dla A = " + A + "</h2>");
+
+        for (let i = 1; i <= A; i++) {
+            let wiersz = "";
+            for (let j = 1; j <= A; j++) {
+
+                if (i === j) {
+                    wiersz += "1";
+                } else {
+                    wiersz += "0";
+                }
+            }
+
+            document.write(wiersz + "<br>");
+        }
+    }
+</script>
+</body>
+</html>

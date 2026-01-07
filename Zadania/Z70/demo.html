@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Z70 - liczby w 10 kolumnach_d</title>
+  <style>
+    body {
+      font-family: monospace;
+      background-color: #f8f8f8;
+      margin: 20px;
+    }
+    pre {
+      background-color: #fff;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+      overflow-x: auto;
+      max-height: 90vh;
+      white-space: pre;
+    }
+  </style>
+</head>
+<body>
+<h1>Autor: Andrii Bondar</h1>
+<h2>Liczby całkowite od 0 do 500 000 w 10 kolumnach</h2>
+<pre id="wynik"></pre>
+
+<script>
+  function formatNumber(num) {
+    return num.toString().padStart(6, " ");
+  }
+
+  const wynik = document.getElementById("wynik");
+  let output = "";
+  const max = 500000;
+  const kolumny = 10;
+
+  for (let i = 0; i <= max; i++) {
+    output += formatNumber(i);
+    if ((i + 1) % kolumny === 0) {
+      output += "\n";
+    }
+  }
+
+  wynik.textContent = output;
+</script>
+
+</body>
+</html>

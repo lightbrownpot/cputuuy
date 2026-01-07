@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Z72 - liczby do A 100_d</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 30px;
+      background-color: #f8f8f8;
+    }
+    form {
+      background-color: #fff;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+      width: 320px;
+    }
+    input[type="number"] {
+      width: 100px;
+      margin-left: 10px;
+    }
+    button {
+      margin-top: 10px;
+      padding: 5px 15px;
+      font-weight: bold;
+      background-color: #0078d7;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    #wynik {
+      margin-top: 20px;
+      font-weight: bold;
+      white-space: pre-wrap;
+    }
+    .blad {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+<h1>Autor: Andrii Bondar</h1>
+<h2>Zadanie 72 — wyświetlanie liczb od 1 do A</h2>
+
+<form id="formularz">
+  <label>Podaj liczbę A:</label>
+  <input type="number" id="A" min="1" required>
+  <br>
+  <button type="submit">Wyświetl</button>
+</form>
+
+<div id="wynik"></div>
+
+<script>
+  document.getElementById("formularz").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const wynikDiv = document.getElementById("wynik");
+    wynikDiv.innerHTML = "";
+
+    let A = document.getElementById("A").value.trim();
+    A = Number(A);
+
+    if (isNaN(A) || !Number.isInteger(A)) {
+      wynikDiv.innerHTML = "<p class='blad'>Błąd: Podaj liczbę całkowitą!</p>";
+      return;
+    }
+
+    if (A <= 0) {
+      wynikDiv.innerHTML = "<p class='blad'>Błąd: Liczba musi być większa od zera!</p>";
+      return;
+    }
+
+    const max = A < 100 ? A : 100;
+
+    let liczby = "";
+    for (let i = 1; i <= max; i++) {
+      liczby += i;
+      if (i < max) liczby += "; ";
+    }
+
+    wynikDiv.innerHTML = `<p>Liczby od 1 do ${max}:</p><p>${liczby}</p>`;
+
+    if (A >= 100) {
+      wynikDiv.innerHTML += `<p style="color:gray;">(Podana liczba jest większa od 100 — wyświetlono tylko do 100)</p>`;
+    }
+  });
+</script>
+
+</body>
+</html>

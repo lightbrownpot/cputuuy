@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Porównanie dwóch dat</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+            background-color: #f6f6f6;
+        }
+        fieldset {
+            margin-bottom: 15px;
+            padding: 10px;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0 0 5px rgba(0,0,0,0.1);
+        }
+        legend {
+            font-weight: bold;
+        }
+        label {
+            display: inline-block;
+            width: 70px;
+        }
+        input[type="number"] {
+            width: 70px;
+            margin-right: 10px;
+        }
+        #wynik {
+            margin-top: 20px;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        .blad {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<h1>Autor: Andrii Bondar</h1>
+<h2>Porównanie dwóch dat</h2>
+
+<form id="formularz">
+    <fieldset>
+        <legend>Pierwsza data:</legend>
+        <label>Dzień:</label> <input type="number" id="dzien1" min="1" max="31" required>
+        <label>Miesiąc:</label> <input type="number" id="miesiac1" min="1" max="12" required>
+        <label>Rok:</label> <input type="number" id="rok1" min="1" required>
+    </fieldset>
+
+    <fieldset>
+        <legend>Druga data:</legend>
+        <label>Dzień:</label> <input type="number" id="dzien2" min="1" max="31" required>
+        <label>Miesiąc:</label> <input type="number" id="miesiac2" min="1" max="12" required>
+        <label>Rok:</label> <input type="number" id="rok2" min="1" required>
+    </fieldset>
+
+    <input type="submit" value="Porównaj daty">
+</form>
+
+<div id="wynik"></div>
+
+<script>
+    document.getElementById("formularz").addEventListener("submit", function(e) {
+        e.preventDefault();
+
+        // Pobranie wartości i konwersja do liczb
+        const dzien1 = parseInt(document.getElementById("dzien1").value);
+        const miesiac1 = parseInt(document.getElementById("miesiac1").value);
+        const rok1 = parseInt(document.getElementById("rok1").value);
+        const dzien2 = parseInt(document.getElementById("dzien2").value);
+        const miesiac2 = parseInt(document.getElementById("miesiac2").value);
+        const rok2 = parseInt(document.getElementById("rok2").value);
+
+        const wynikDiv = document.getElementById("wynik");
+        wynikDiv.innerHTML = ""; // wyczyszczenie poprzedniego wyniku
+
+        // Funkcja sprawdzająca poprawność daty
+        function sprawdzDate(dzien, miesiac, rok) {
+            const data = new Date(rok, miesiac - 1, dzien);
+            return data.getFullYear() === rok &&
+                data.getMonth() === miesiac - 1 &&
+                data.getDate() === dzien;
+        }
+
+        // Sprawdzenie poprawności obu dat
+        if (!sprawdzDate(dzien1, miesiac1, rok1)) {
+            wynikDiv.innerHTML = "<p class='blad'>Pierwsza data jest niepoprawna!</p>";
+            return;
+        }
+        if (!sprawdzDate(dzien2, miesiac2, rok2)) {
+            wynikDiv.innerHTML = "<p class='blad'>Druga data jest niepoprawna!</p>";
+            return;
+        }
+
+        // Utworzenie obiektów dat
+        const data1 = new Date(rok1, miesiac1 - 1, dzien1);
+        const data2 = new Date(rok2, miesiac2 - 1, dzien2);
+
+        // Wyświetlenie wprowadzonych dat
+        wynikDiv.innerHTML = `
+                <p>Pierwsza data: ${dzien1}-${miesiac1}-${rok1}</p>
+                <p>Druga data: ${dzien2}-${miesiac2}-${rok2}</p>
+            `;
+
+        // Porównanie dat
+        if (data1.getTime() < data2.getTime()) {
+            wynikDiv.innerHTML += `<p><strong>Wcześniejsza jest pierwsza data: ${dzien1}-${miesiac1}-${rok1}</strong></p>`;
+        } else if (data1.getTime() > data2.getTime()) {
+            wynikDiv.innerHTML += `<p><strong>Wcześniejsza jest druga data: ${dzien2}-${miesiac2}-${rok2}</strong></p>`;
+        } else {
+            wynikDiv.innerHTML += `<p><strong>Obie daty są takie same.</strong></p>`;
+        }
+    });
+</script>
+
+</body>
+</html>

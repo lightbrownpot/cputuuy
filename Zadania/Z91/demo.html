@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Z91 - tablica jednowymiarowa</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    textarea { width: 300px; height: 100px; }
+    #wynik { margin-top: 20px; font-weight: bold; white-space: pre-line; }
+    .error { color: red; }
+    .success { color: green; }
+  </style>
+</head>
+<body>
+
+<h1>Z91 - tablica jednowymiarowa</h1>
+<h2>Autor: Andrii Bondar 4i</h2>
+
+<label>Liczba elementów (n &lt; 100):</label><br>
+<input type="text" id="n"><br><br>
+
+<label>Wartości tablicy (liczby całkowite oddzielone przecinkami):</label><br>
+<textarea id="values" placeholder="np. 1, 2, 3, 4"></textarea><br><br>
+
+<button onclick="processData()">Wyślij</button>
+
+<div id="wynik"></div>
+
+<script>
+  function processData() {
+    const nInput = document.getElementById("n").value.trim();
+    const valuesInput = document.getElementById("values").value.trim();
+    const wynik = document.getElementById("wynik");
+    wynik.innerHTML = "";
+
+    if (!/^-?\d+$/.test(nInput)) {
+      wynik.innerHTML = "Błąd: n musi być liczbą całkowitą.";
+      return;
+    }
+
+    const n = parseInt(nInput);
+
+    if (n >= 100 || n < 0) {
+      wynik.innerHTML = "Błąd: n musi być liczbą całkowitą między 0 a 99.";
+      return;
+    }
+
+    const parts = valuesInput.split(",").map(s => s.trim()).filter(s => s !== "");
+
+    if (parts.length !== n) {
+      wynik.innerHTML =
+              `Liczba elementów: n = ${n}\n` +
+              `Wprowadzone liczby: ${valuesInput}\n` +
+              `Rezultat: Liczba wprowadzonych wartości (${parts.length}) ` +
+              `nie zgadza się z n (${n}).`;
+      wynik.className = "error";
+      return;
+    }
+
+    const array = [];
+
+    for (let p of parts) {
+      if (!/^-?\d+$/.test(p)) {
+        wynik.innerHTML = `Błąd: "${p}" nie jest liczbą całkowitą.`;
+        wynik.className = "error";
+        return;
+      }
+      array.push(parseInt(p));
+    }
+
+    wynik.innerHTML =
+            `Liczba elementów: n = ${n}\n` +
+            `Wprowadzone liczby: ${valuesInput}\n` +
+            `Rezultat: Tablica poprawna → [ ${array.join(", ")} ]`;
+    wynik.className = "success";
+  }
+</script>
+
+</body>
+</html>

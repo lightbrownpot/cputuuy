@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Z78 - litery_d</title>
+</head>
+<body>
+<header>
+  <h1>Z78 - litery_d</h1>
+  <h2>Autor: Andrii Bondar 4i</h2>
+</header>
+<p>Napisz program, który odczytuje dwie wartości będące dużymi literami alfabetu angielskiego i wypisuje litery od pierwszej do drugiej.</p>
+
+<script>
+  let A = prompt("Podaj pierwszy znak (A-Z):");
+  let B = prompt("Podaj drugi znak (A-Z):");
+
+  let start = A.charCodeAt(0);
+  let end = B.charCodeAt(0);
+
+  let wynik = "";
+
+  if (start <= end) {
+    for (let i = start; i <= end; i++) {
+      wynik += String.fromCharCode(i) + " ";
+    }
+  } else {
+    for (let i = end; i <= start; i++) {
+      wynik += String.fromCharCode(i) + " ";
+    }
+  }
+
+  document.write("<b>Wynik:</b> " + wynik);
+</script>
+
+</body>
+</html>

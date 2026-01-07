@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Z30p - dzielenie ze sprawdzeniem</title>
+</head>
+<body>
+<header>
+    <h1>Z30p - dzielenie ze sprawdzeniem</h1>
+    <h2>Autor: Andrii Bondar 4i</h2>
+</header>
+<section>
+    <script>
+        let inputA = prompt("Podaj a:");
+        let inputB = prompt("Podaj b:");
+
+        let a = parseInt(inputA);
+        let b = parseInt(inputB);
+
+        if (isNaN(a) || isNaN(b)) {
+            document.write("Błąd: Obie wartości muszą być liczbami.<br>");
+        } else if (inputA.includes('.') || inputB.includes('.')) {
+            document.write("Błąd: Podane liczby nie mogą być rzeczywiste (z częścią dziesiętną).<br>");
+        } else if (a != inputA || b != inputB) {
+            document.write("Błąd: Podane wartości nie są liczbami całkowitymi.<br>");
+        } else if (b === 0) {
+            document.write("Błąd: Nie można dzielić przez zero.<br>");
+        } else {
+            let wynik = a / b;
+            document.write("Wynik dzielenia " + a + " / " + b + " = " + wynik + "<br>");
+        }
+    </script>
+</section>
+</body>
+</html>

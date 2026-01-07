@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Z94 - max i indeksy w tablicy jednowymiar</title>
+</head>
+<body>
+<header>
+    <h1>Z94 - max w tablicy jednowymiar.</h1>
+    <h2>Autor: Andrii Bondar 4i</h2>
+</header>
+<script>
+    let a = prompt("Wartości tablicy (liczby całkowite oddzielone przecinkami):");
+
+    let b = a.split(",");
+    let tab = b.map(x => parseInt(x));
+
+    for (let i = 0; i < tab.length; i++) {
+        if (isNaN(tab[i])) {
+            document.write("Błąd: \"" + b[i] + "\" nie jest liczbą całkowitą.");
+            throw new Error();
+        }
+    }
+
+    for (let i = 0; i < tab.length; i++) {
+        document.write("tab[" + i + "] = " + tab[i] + "<br>");
+    }
+
+    let max = Math.max(...tab);
+
+    let indeksy = [];
+    for (let i = 0; i < tab.length; i++) {
+        if (tab[i] === max) indeksy.push(i);
+    }
+
+    document.write("<br>Liczba elementów: " + tab.length + "<br>");
+    document.write("Maksymalna wartość: " + max + "<br>");
+    document.write("Indeksy maksymalnej wartości: " + indeksy);
+</script>
+</body>
+</html>

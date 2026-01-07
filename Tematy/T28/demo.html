@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>T28 - Wyświetlanie kwadratów liczb</title>
+</head>
+<body>
+<header>
+    <h1>T28 - Wyświetlanie kwadratów liczb</h1>
+    <h2>Autor: Andrii Bondar</h2>
+</header>
+<p>
+    Napisz program w JavaScript, który:
+
+    Wczyta od użytkownika dodatnią liczbę całkowitą n za pomocą funkcji prompt.<br>
+    Sprawdzi, czy wprowadzona wartość jest poprawna (dodatnia liczba całkowita).<br>
+    Używając pętli for, wyświetli kwadraty liczb od 1 do n za pomocą document.write, każde w nowej linii.<br>
+</p>
+<section>
+    <script>
+        let n = prompt("Podaj dodatnią liczbę całkowitą:");
+
+        n = parseInt(n);
+
+        if (isNaN(n) || n <= 0) {
+            document.write("Proszę podać dodatnią liczbę całkowitą.");
+        } else {
+            for (let i = 1; i <= n; i++) {
+                let kwadrat = i * i;
+                document.write("Kwadrat liczby " + i + " to: " + kwadrat + "<br>");
+            }
+        }
+    </script>
+</section>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>T41 - działanie na tablicach</title>
+</head>
+<body>
+<header>
+  <h1>T41 - działanie na tablicach</h1>
+  <h2>Autor: Andrii Bondar 4i</h2>
+</header>
+<script>
+    let input = prompt("Podaj liczby oddzielone przecinkami (np. 3,7,2,9,5):");
+
+    if (!input) {
+        document.write("Proszę podać poprawną listę liczb.");
+    } else {
+        let numbers = input.split(",").map(x => Number(x.trim()));
+
+        if (numbers.length === 0 || numbers.some(isNaN)) {
+            document.write("Proszę podać poprawną listę liczb.");
+        } else {
+            let sorted = [...numbers].sort((a, b) => a - b);
+
+            let even = numbers.filter(n => n % 2 === 0);
+
+            let sum = numbers.reduce((acc, val) => acc + val, 0);
+
+            document.write("Tablica liczb: " + numbers.join(", ") + "<br>");
+            document.write("Posortowana tablica: " + sorted.join(", ") + "<br>");
+            document.write("Liczby parzyste: " + even.join(", ") + "<br>");
+            document.write("Suma wszystkich elementów: " + sum);
+        }
+    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Z74 - ułamki i piętra_d</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 30px;
+    }
+    input, button {
+      font-size: 16px;
+      padding: 5px 10px;
+      margin-top: 10px;
+    }
+    #wynik {
+      margin-top: 20px;
+      font-family: "Courier New", monospace;
+      white-space: pre-line;
+    }
+  </style>
+</head>
+<body>
+<h1>Z74 - ułamki i piętra_d</h1>
+<h2>Autor: Andrii Bondar</h2>
+<h3>Podaj liczbę pięter:</h3>
+<form id="formularz" onsubmit="return false;">
+  N: <input type="text" id="liczba">
+  <button onclick="wspinaczka()">Oblicz</button>
+</form>
+
+<div id="wynik"></div>
+
+<script>
+  function wspinaczka() {
+    const pole = document.getElementById("liczba");
+    const wynikDiv = document.getElementById("wynik");
+    let N = pole.value.trim();
+    wynikDiv.textContent = "";
+
+    if (isNaN(N) || !Number.isInteger(Number(N)) || N <= 0) {
+      wynikDiv.textContent = "Podaj dodatnią liczbę całkowitą!";
+      return;
+    }
+
+    N = Number(N);
+    let wynik = "";
+
+    for (let i = 1; i <= N; i++) {
+      let strzalki = "> ".repeat(i);
+      let ulamek = `1/${i}`;
+      let dziesietny = (1 / i).toFixed(6);
+      wynik += `Piętro ${i} > ${strzalki}${ulamek} - ${dziesietny}\n`;
+    }
+
+    wynik += `${"> ".repeat(N + 1)}Koniec wspinaczki wracamy ${"< ".repeat(N + 1)}\n`;
+
+    for (let i = N; i >= 1; i--) {
+      wynik += `Piętro ${i} ${"> ".repeat(i)}\n`;
+    }
+
+    wynikDiv.textContent = wynik;
+  }
+</script>
+</body>
+</html>

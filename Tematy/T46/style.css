@@ -1,0 +1,63 @@
+/* Styl ogólny */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9; /* Bardzo jasnoszary */
+    color: #333;
+    margin: 20px;
+    line-height: 1.6;
+}
+
+/* Styl dla nagłówka */
+header {
+    background-color: #0056b3; /* Ciemnoniebieski */
+    color: white;
+    padding: 15px 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2em;
+}
+
+header h2 {
+    margin: 5px 0 0 0;
+    font-size: 1.1em;
+    font-weight: normal;
+    color: #cceeff; /* Jasnoniebieski */
+}
+
+/* Styl dla sekcji informacyjnej */
+section {
+    background-color: white;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    border-left: 5px solid #0056b3;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Styl dla elementu div, w którym wyświetlana jest data */
+#data {
+    width: 300px; /* Ustalona szerokość */
+    height: 50px; /* Ustalona wysokość */
+    border: 3px solid #007bff; /* Wyraźna granica, niebieski */
+    background-color: #e9f7ff; /* Bardzo jasnoniebieskie tło */
+    display: flex; /* Użycie flexbox do centrowania zawartości */
+    justify-content: center; /* Centrowanie poziome */
+    align-items: center; /* Centrowanie pionowe */
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #0056b3;
+    cursor: pointer; /* Zmienia kursor, sugerując interakcję */
+    transition: background-color 0.3s, box-shadow 0.3s; /* Płynne przejścia */
+    border-radius: 5px;
+}
+
+/* Styl po najechaniu kursorem - wizualna informacja zwrotna */
+#data:hover {
+    background-color: #d0e9ff; /* Jaśniejsze tło po najechaniu */
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.5); /* Lekki cień */
+}

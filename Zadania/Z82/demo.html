@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Z82 - prostokąt X_d</title>
+</head>
+<body>
+<header>
+  <h1>Z82 - prostokąt X_d</h1>
+  <h2>Autor: Andrii Bondar 4i</h2>
+</header>
+<h3>Napisz program, który dla danej liczby A i B wyświetla następujący blok znaków.</h3>
+
+<script>
+  let A = parseInt(prompt("Podaj A (liczba znaków w wierszu):"));
+  let B = parseInt(prompt("Podaj B (liczba wierszy):"));
+
+  if (isNaN(A) || isNaN(B) || A < 1 || B < 1) {
+  } else {
+    let wiersz = "X".repeat(A);
+    let wynik = "";
+
+    for (let i = 0; i < B; i++) {
+      wynik += wiersz + "<br>";
+    }
+
+    document.write("<b>Wynik:</b><br>" + wynik);
+  }
+</script>
+
+</body>
+</html>

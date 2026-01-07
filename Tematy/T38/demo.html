@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Obiekt-literał</title>
+</head>
+<body>
+<h2>Ćwiczenie-Tworzenie obiektu zapomocąliterału</h2>
+<script>
+    var pojazd ={
+        marka:"Nissan",
+        model:"Micra",
+        rok_produkcji:"1998",
+        przebieg: 400000,
+        wyswietlDane: function(){
+            document.write(this.marka +' ' +this.model+ ',rok produkcji:'
+                +this.rok_produkcji+ "<br>");
+        }
+    };
+    pojazd.wyswietlDane();
+    pojazd.numer_rej="DpL77473";
+    pojazd.wyswietlDetal = function(){
+        document.write('Marka: '+ this.marka +', numer rejestracyjny: '
+            +this.numer_rej);
+    }
+    pojazd.wyswietlDetal();
+</script>
+</body>
+</html>

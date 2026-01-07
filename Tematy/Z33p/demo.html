@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Z33p - ułamek właściwy</title>
+</head>
+<body>
+<header>
+  <h1>Z33p - ułamek właściwy</h1>
+  <h2>Autor: Andrii Bondar 4i</h2>
+</header>
+<section>
+  <script>
+    let licznikInput = prompt("Podaj licznik:");
+    let mianownikInput = prompt("Podaj mianownik:");
+
+    let licznik = parseInt(licznikInput);
+    let mianownik = parseInt(mianownikInput);
+
+    if (isNaN(licznik) || isNaN(mianownik)) {
+      document.write("Błąd<br>");
+    } else if (mianownik === 0) {
+      document.write("Błąd");
+    } else {
+      if (licznik < mianownik) {
+        document.write("Ułamek " + licznik + "/" + mianownik + " jest już ułamkiem właściwym.<br>");
+        document.write("Wynik: " + licznik + "/" + mianownik + "<br>");
+      } else {
+        let calosci = Math.floor(licznik / mianownik);
+        let nowyLicznik = licznik % mianownik;
+
+        if (nowyLicznik === 0) {
+          document.write("Ułamek " + licznik + "/" + mianownik + " = " + calosci + "<br>");
+        } else {
+          document.write("Ułamek " + licznik + "/" + mianownik + " = " + calosci + " i " + nowyLicznik + "/" + mianownik + "<br>");
+        }
+      }
+    }
+  </script>
+</section>
+</body>
+</html>

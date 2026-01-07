@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Z69 - liczby od A do 100000_d</title>
+  <style>
+    body { font-family: Arial; margin: 25px; }
+    #wynik {
+      margin-top: 20px;
+      white-space: pre-line;
+      font-size: 18px;
+    }
+    .blad { color: red; font-weight: bold; }
+  </style>
+</head>
+<body>
+<h1>Autor: Andrii Bondar</h1>
+<h2>Wyświetlanie liczb od A do 100000</h2>
+
+<form id="formularz">
+  <label>Liczba początkowa A: </label>
+  <input type="text" id="A" required>
+  <button type="submit">Wyświetl</button>
+</form>
+
+<div id="wynik"></div>
+
+<script>
+  document.getElementById("formularz").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const wynikDiv = document.getElementById("wynik");
+    wynikDiv.innerHTML = "";
+
+    let A = document.getElementById("A").value.trim();
+
+    A = Number(A);
+
+    // Walidacja
+    if (isNaN(A)) {
+      wynikDiv.innerHTML = "<p class='blad'>Błąd: A musi być liczbą!</p>";
+      return;
+    }
+
+    if (!Number.isInteger(A)) {
+      wynikDiv.innerHTML = "<p class='blad'>Błąd: A musi być liczbą całkowitą!</p>";
+      return;
+    }
+
+    if (A >= 100000) {
+      wynikDiv.innerHTML = "<p class='blad'>Błąd: A musi być mniejsze niż 100000!</p>";
+      return;
+    }
+
+    let tekst = "";
+    for (let i = A; i <= 100000; i++) {
+      tekst += i + "\n";
+    }
+
+    wynikDiv.textContent = tekst;
+  });
+</script>
+
+</body>
+</html>

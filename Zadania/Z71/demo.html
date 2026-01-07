@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Z71 - ile cyfr_d</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 30px;
+      background-color: #f7f7f7;
+    }
+    form {
+      background-color: #fff;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+      width: 300px;
+    }
+    input[type="number"] {
+      width: 100px;
+      margin-left: 10px;
+    }
+    button {
+      margin-top: 10px;
+      padding: 5px 15px;
+      font-weight: bold;
+      background-color: #0078d7;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    #wynik {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+    .blad {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+<h1>Autor: Andrii Bondar</h1>
+<h2>Zadanie 71 — liczba cyfr w podanej liczbie</h2>
+
+<form id="formularz">
+  <label>Podaj liczbę:</label>
+  <input type="number" id="liczba" min="1" required>
+  <br>
+  <button type="submit">Sprawdź</button>
+</form>
+
+<div id="wynik"></div>
+
+<script>
+  document.getElementById("formularz").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const wynikDiv = document.getElementById("wynik");
+    wynikDiv.innerHTML = "";
+
+    let liczba = document.getElementById("liczba").value.trim();
+    liczba = Number(liczba);
+
+    if (isNaN(liczba) || !Number.isInteger(liczba)) {
+      wynikDiv.innerHTML = "<p class='blad'>Błąd: Podaj liczbę całkowitą!</p>";
+      return;
+    }
+
+    if (liczba <= 0) {
+      wynikDiv.innerHTML = "<p class='blad'>Błąd: Liczba musi być większa od zera!</p>";
+      return;
+    }
+
+    const ileCyfr = liczba.toString().length;
+
+    wynikDiv.innerHTML = `<p>Liczba ${liczba} ma <strong>${ileCyfr}</strong> cyfr(y).</p>`;
+  });
+</script>
+
+</body>
+</html>
